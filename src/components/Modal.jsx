@@ -23,17 +23,20 @@ export const Modal = ({ showModal, setShowModal }) => {
 
   /*  <<<========    KeyPress Modal Open  & Close   =========>>>*/
 
-  const keyPress = useCallback((e) => {
-    // Modal Close when Press Escape key
-    if (e.key === "Escape" && showModal) {
-      setShowModal(false);
-    }
+  const keyPress = useCallback(
+    (e) => {
+      // Modal Close when Press Escape key
+      if (e.key === "Escape" && showModal) {
+        setShowModal(false);
+      }
 
-    // Modal Open when Press Escape key
-    if (e.key === "Escape" && !showModal) {
-      setShowModal(true);
-    }
-  });
+      // Modal Open when Press Escape key
+      if (e.key === "Escape" && !showModal) {
+        setShowModal(true);
+      }
+    },
+    [setShowModal, showModal]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", keyPress);
